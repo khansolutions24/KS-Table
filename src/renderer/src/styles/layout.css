@@ -1,0 +1,682 @@
+/* ───────────────────────── App shell ───────────────────────── */
+.ks-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-app);
+}
+
+.ks-titlebar {
+  height: var(--titlebar-h);
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 8px;
+  background: var(--bg-titlebar);
+  -webkit-app-region: drag;
+  border-bottom: 1px solid var(--border);
+}
+.ks-titlebar-logo {
+  display: flex;
+  align-items: center;
+  padding-right: 4px;
+}
+.ks-titlebar-title {
+  flex: 1;
+  text-align: center;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  padding: 0 12px;
+  pointer-events: none;
+}
+.ks-titlebar-controls {
+  width: 140px;
+  flex: none;
+}
+
+.ks-maintoolbar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 3px 6px;
+  background: var(--bg-toolbar);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.ks-maintoolbar::-webkit-scrollbar {
+  height: 0;
+}
+
+.ks-workspace {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.ks-panels {
+  width: 100%;
+  height: 100%;
+}
+.ks-splitter {
+  width: 4px;
+  background: var(--bg-app);
+  transition: background 0.1s;
+  flex: none;
+}
+.ks-splitter:hover,
+.ks-splitter[data-separator='active'] {
+  background: var(--accent);
+}
+
+/* ───────────────────────── Navigator ───────────────────────── */
+.ks-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+}
+.ks-nav-header {
+  height: 32px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 6px 0 12px;
+  border-bottom: 1px solid var(--border);
+}
+.ks-nav-title {
+  flex: 1;
+  font-weight: 600;
+  color: var(--fg-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ks-nav-tree {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  outline: none;
+  padding: 3px 0;
+}
+.ks-nav-tree-inner {
+  position: relative;
+  width: 100%;
+}
+.ks-nav-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 16px;
+  color: var(--fg-muted);
+  text-align: center;
+}
+.ks-nav-footer {
+  flex: none;
+  padding: 6px;
+  border-top: 1px solid var(--border);
+}
+
+.ks-tree-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px 0 4px;
+  white-space: nowrap;
+}
+.ks-tree-row:hover {
+  background: var(--bg-hover);
+}
+.ks-tree-row.selected {
+  background: var(--bg-selected);
+}
+.ks-nav-tree:focus .ks-tree-row.selected {
+  background: var(--bg-selected);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+.ks-tree-row.conn .ks-tree-label {
+  font-weight: 600;
+}
+.ks-tree-twisty {
+  width: 16px;
+  height: 20px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-muted);
+}
+.ks-tree-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ks-tree-label mark {
+  background: color-mix(in srgb, #facc15 55%, transparent);
+  color: inherit;
+  border-radius: 2px;
+}
+.ks-tree-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+.ks-tree-hint {
+  flex: none;
+  color: var(--fg-faint);
+  font-size: 11px;
+}
+
+/* ───────────────────────── Document tabs ───────────────────────── */
+.ks-tabarea {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  background: var(--bg-panel);
+}
+.ks-tabbar {
+  flex: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  height: 35px;
+  padding: 0 4px;
+  background: var(--bg-toolbar);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.ks-tabbar::-webkit-scrollbar {
+  height: 0;
+}
+.ks-doctab {
+  position: relative;
+  top: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 31px;
+  max-width: 250px;
+  min-width: 80px;
+  padding: 0 4px 0 10px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  color: var(--fg-muted);
+  flex: none;
+}
+.ks-doctab:hover {
+  background: var(--bg-hover);
+}
+.ks-doctab.active {
+  background: var(--bg-panel);
+  border-color: var(--border);
+  color: var(--fg);
+}
+.ks-doctab.dragging {
+  opacity: 0.5;
+}
+.ks-doctab-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ks-doctab-dirty {
+  color: var(--accent);
+  font-size: 10px;
+}
+.ks-doctab-color {
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  border-radius: 2px;
+}
+.ks-doctab-close {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--fg-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  flex: none;
+}
+.ks-doctab:hover .ks-doctab-close,
+.ks-doctab.active .ks-doctab-close {
+  visibility: visible;
+}
+.ks-doctab-close:hover {
+  background: var(--bg-pressed);
+  color: var(--fg);
+}
+.ks-tab-glyph {
+  color: var(--fg-muted);
+  flex: none;
+}
+.ks-tabcontent {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+.ks-tabpane {
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  min-width: 0;
+}
+.ks-tab-loading {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ───────────────────────── Objects tab ───────────────────────── */
+.ks-objects {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.ks-objects-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  position: relative;
+}
+.ks-objects-search {
+  width: 200px;
+  margin-right: 6px;
+}
+.ks-objects-status {
+  flex: none;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-toolbar);
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+
+.ks-ot {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  position: relative;
+  outline: none;
+}
+.ks-ot-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  height: 28px;
+  background: var(--grid-header-bg);
+  border-bottom: 1px solid var(--border);
+}
+.ks-ot-th {
+  flex: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  border-right: 1px solid var(--grid-line);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ks-ot-th.right {
+  justify-content: flex-end;
+}
+.ks-ot-th.sortable:hover {
+  background: var(--bg-hover);
+}
+.ks-ot-resize {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  z-index: 1;
+}
+.ks-ot-resize:hover {
+  background: var(--accent);
+  opacity: 0.5;
+}
+.ks-ot-body {
+  position: relative;
+}
+.ks-ot-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid transparent;
+}
+.ks-ot-row:hover {
+  background: var(--bg-hover);
+}
+.ks-ot-row.selected {
+  background: var(--bg-selected);
+}
+.ks-ot:focus .ks-ot-row.selected {
+  background: color-mix(in srgb, var(--accent) 22%, var(--bg-panel));
+}
+.ks-ot-td {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ks-ot-td.right {
+  justify-content: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+.ks-ot-empty {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.ks-ot-list {
+  flex: 1;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-content: start;
+  gap: 2px;
+  padding: 6px;
+  outline: none;
+}
+.ks-ot-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 4px;
+  min-width: 0;
+}
+.ks-ot-item:hover {
+  background: var(--bg-hover);
+}
+.ks-ot-item.selected {
+  background: var(--bg-selected);
+}
+.ks-ot-list:focus .ks-ot-item.selected {
+  background: color-mix(in srgb, var(--accent) 22%, var(--bg-panel));
+}
+
+/* ───────────────────────── Information pane ───────────────────────── */
+.ks-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-panel);
+  border-left: 1px solid var(--border);
+}
+.ks-info .ks-tabstrip {
+  background: var(--bg-toolbar);
+  min-height: 35px;
+}
+.ks-info-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px;
+}
+.ks-info-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.ks-info-title {
+  font-size: 15px;
+  font-weight: 600;
+  word-break: break-all;
+}
+.ks-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.ks-info-key {
+  color: var(--fg-muted);
+  font-size: 12px;
+  margin-bottom: 1px;
+}
+.ks-info-val {
+  word-break: break-word;
+}
+.ks-info-ddl {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  position: relative;
+  background: var(--bg-code);
+}
+.ks-info-copy {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+
+/* ───────────────────────── SQL highlight ───────────────────────── */
+.ks-sql {
+  margin: 0;
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.sql-kw {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+.sql-type {
+  color: #0e7490;
+}
+.sql-str {
+  color: #15803d;
+}
+.sql-num {
+  color: #b45309;
+}
+.sql-cmt {
+  color: #6b7280;
+  font-style: italic;
+}
+.sql-id {
+  color: #7e22ce;
+}
+.sql-var {
+  color: #be185d;
+}
+:root[data-theme='dark'] .sql-kw {
+  color: #7aa2f7;
+}
+:root[data-theme='dark'] .sql-type {
+  color: #7dcfff;
+}
+:root[data-theme='dark'] .sql-str {
+  color: #9ece6a;
+}
+:root[data-theme='dark'] .sql-num {
+  color: #ff9e64;
+}
+:root[data-theme='dark'] .sql-cmt {
+  color: #6b7389;
+}
+:root[data-theme='dark'] .sql-id {
+  color: #bb9af7;
+}
+:root[data-theme='dark'] .sql-var {
+  color: #f7768e;
+}
+.ks-sql-preview {
+  flex: 1;
+  overflow: auto;
+  background: var(--bg-code);
+}
+
+/* ───────────────────────── Status bar / toasts ───────────────────────── */
+.ks-statusbar {
+  flex: none;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px;
+  background: var(--bg-toolbar);
+  border-top: 1px solid var(--border);
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+.ks-toasts {
+  position: fixed;
+  right: 16px;
+  bottom: 36px;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+.ks-toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px 8px 12px;
+  max-width: 440px;
+  background: var(--bg-menu);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: var(--shadow-menu);
+  animation: ks-toast-in 0.16s ease-out;
+}
+.ks-toast svg {
+  flex: none;
+  color: var(--accent);
+}
+.ks-toast.success svg:first-child {
+  color: var(--success);
+}
+.ks-toast.error svg:first-child {
+  color: var(--danger);
+}
+.ks-toast button {
+  border: none;
+  background: transparent;
+  color: var(--fg-faint);
+  display: flex;
+  padding: 2px;
+  border-radius: 3px;
+}
+.ks-toast button:hover {
+  background: var(--bg-hover);
+}
+@keyframes ks-toast-in {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+}
+
+/* ───────────────────────── Dialog specifics ───────────────────────── */
+.ks-conn-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px 18px;
+}
+.ks-plain-fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.ks-plain-fieldset:disabled {
+  opacity: 0.55;
+}
+.ks-conn-dblist-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ks-conn-dblist {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  height: 250px;
+  overflow: auto;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--bg-input);
+}
+.ks-conn-dblist.disabled {
+  opacity: 0.6;
+}
+.ks-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.ks-shortcuts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 28px;
+}
+.ks-shortcuts-group h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+}
+.ks-shortcut-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+}
+.ks-shortcut-row kbd {
+  min-width: 120px;
+  text-align: center;
+}

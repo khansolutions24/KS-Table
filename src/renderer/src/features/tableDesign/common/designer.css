@@ -1,0 +1,308 @@
+/* Shared layout of the object designers (table, view, routine, event) */
+.ks-dsg {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  background: var(--bg-panel);
+}
+.ks-dsg-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.ks-dsg-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+.ks-dsg-form {
+  padding: 14px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 980px;
+}
+.ks-dsg-form .ks-section {
+  gap: 7px;
+}
+.ks-dsg-two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 7px 28px;
+}
+.ks-dsg-editor {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.ks-dsg-editor > .ks-sql-editor {
+  flex: 1;
+}
+.ks-dsg-loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ks-dsg-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--warning-soft);
+  color: var(--fg);
+  flex: none;
+}
+.ks-dsg-banner svg {
+  color: var(--warning);
+  flex: none;
+}
+.ks-dsg-banner.info {
+  background: var(--accent-soft);
+}
+.ks-dsg-banner.info svg {
+  color: var(--accent);
+}
+.ks-dsg-banner .spacer {
+  flex: 1;
+}
+.ks-dsg-sep-v {
+  height: 5px;
+  background: var(--bg-app);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+.ks-dsg-sep-v:hover,
+.ks-dsg-sep-v[data-separator='active'] {
+  background: var(--accent);
+}
+.ks-dsg-status-dirty {
+  color: var(--accent);
+  font-weight: 600;
+}
+.ks-dsg-status-right {
+  margin-left: auto;
+}
+
+/* SQL preview */
+.ks-dsg-preview {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-dsg-preview-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-toolbar);
+}
+.ks-dsg-preview-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  position: relative;
+  background: var(--bg-code);
+}
+.ks-dsg-preview-copy {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+.ks-dsg-preview-empty {
+  padding: 16px;
+  color: var(--fg-faint);
+}
+
+/* Results */
+.ks-dsg-results {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--bg-panel);
+}
+.ks-dsg-results .ks-tabstrip {
+  background: var(--bg-toolbar);
+}
+.ks-dsg-results-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  position: relative;
+}
+.ks-dsg-msgs {
+  flex: 1;
+  overflow: auto;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ks-dsg-msg {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.ks-dsg-msg svg {
+  flex: none;
+  margin-top: 2px;
+}
+.ks-dsg-msg-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ks-dsg-msg-sql {
+  font-size: 12px;
+  color: var(--fg-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.ks-dsg-msg.error .ks-dsg-msg-text > div:last-child {
+  color: var(--danger);
+}
+
+/* Simple editable grids (HTML table with inline controls) */
+.ks-dsg-grid-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  position: relative;
+  outline: none;
+}
+.ks-dsg-grid {
+  width: max-content;
+  min-width: 100%;
+}
+.ks-dsg-grid td {
+  padding: 0 2px;
+  height: 27px;
+  max-width: none;
+}
+.ks-dsg-grid th {
+  padding: 0 6px;
+}
+.ks-dsg-grid tbody tr:hover td {
+  background: transparent;
+}
+.ks-dsg-grid tbody tr.selected td {
+  background: var(--bg-selected);
+}
+.ks-dsg-grid tbody tr.problem td:first-child {
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+.ks-dsg-cell {
+  width: 100%;
+  height: 23px;
+  padding: 0 5px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--fg);
+  outline: none;
+  min-width: 0;
+  user-select: text;
+}
+.ks-dsg-cell:hover:not(:disabled) {
+  border-color: var(--border);
+}
+.ks-dsg-cell:focus {
+  border-color: var(--accent);
+  background: var(--bg-input);
+  box-shadow: var(--focus-ring);
+}
+.ks-dsg-cell:disabled {
+  color: var(--fg-faint);
+}
+select.ks-dsg-cell {
+  padding: 0 2px;
+}
+select.ks-dsg-cell option {
+  background: var(--bg-panel);
+  color: var(--fg);
+}
+.ks-dsg-cell.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.ks-dsg-center {
+  text-align: center;
+}
+.ks-dsg-center input[type='checkbox'] {
+  accent-color: var(--accent);
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  vertical-align: middle;
+}
+.ks-dsg-picker {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+.ks-dsg-picker > span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 5px;
+  height: 23px;
+  line-height: 23px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.ks-dsg-picker:hover > span {
+  border-color: var(--border);
+}
+.ks-dsg-grid-empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--fg-muted);
+}
+
+/* ordered list editor used by pickers / value lists */
+.ks-dsg-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-input);
+  overflow: auto;
+  min-height: 120px;
+}
+.ks-dsg-list-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+.ks-dsg-list-item:hover {
+  background: var(--bg-hover);
+}
+.ks-dsg-list-item.selected {
+  background: var(--bg-selected);
+}
+.ks-dsg-list-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

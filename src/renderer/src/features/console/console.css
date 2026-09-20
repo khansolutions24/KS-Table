@@ -1,0 +1,56 @@
+.ks-console {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 8px 10px 16px;
+  background: var(--bg-code);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.45;
+  cursor: text;
+  user-select: text;
+}
+.ks-console-block {
+  margin: 0;
+  font: inherit;
+  white-space: pre;
+  tab-size: 4;
+}
+.ks-console-block.input {
+  color: var(--fg-muted);
+}
+.ks-console-block.error {
+  color: var(--danger);
+  white-space: pre-wrap;
+}
+.ks-console-block.info {
+  color: var(--fg-muted);
+  white-space: pre-wrap;
+}
+.ks-console-inputline {
+  display: flex;
+  align-items: flex-start;
+}
+.ks-console-prompt {
+  white-space: pre;
+  color: var(--accent);
+  flex: none;
+}
+.ks-console-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  line-height: inherit;
+  height: 1.45em;
+  overflow: hidden;
+  white-space: pre;
+  caret-color: var(--accent);
+}

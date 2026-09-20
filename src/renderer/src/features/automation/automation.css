@@ -1,0 +1,221 @@
+/* Automation tab */
+.ks-automation {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--bg-panel);
+}
+.ks-automation-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.ks-automation-list {
+  width: 290px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: var(--bg-sidebar);
+  min-height: 0;
+}
+.ks-automation-list-head {
+  padding: 6px;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+.ks-automation-jobs {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  outline: none;
+  padding: 3px 0;
+}
+.ks-automation-job {
+  display: flex;
+  gap: 8px;
+  padding: 6px 10px;
+  border-left: 2px solid transparent;
+}
+.ks-automation-job:hover {
+  background: var(--bg-hover);
+}
+.ks-automation-job.selected {
+  background: var(--bg-selected);
+  border-left-color: var(--accent);
+}
+.ks-automation-job-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ks-automation-job-name {
+  font-weight: 600;
+}
+.ks-automation-job-sub {
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+.ks-automation-editor {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-automation-page {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ks-automation-page.fill {
+  overflow: hidden;
+}
+.ks-automation-steps {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+.ks-automation-steplist {
+  width: 300px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+}
+.ks-automation-steprows {
+  flex: 1;
+  min-height: 120px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-input);
+  outline: none;
+}
+.ks-automation-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 2px 8px;
+  border-bottom: 1px solid var(--grid-line);
+}
+.ks-automation-step:hover {
+  background: var(--bg-hover);
+}
+.ks-automation-step.selected {
+  background: var(--bg-selected);
+}
+.ks-automation-step.disabled .ks-automation-step-name {
+  color: var(--fg-faint);
+  text-decoration: line-through;
+}
+.ks-automation-step-no {
+  color: var(--fg-faint);
+  font-size: 12px;
+  width: 18px;
+  text-align: right;
+  flex: none;
+}
+.ks-automation-step-name {
+  flex: 1;
+  min-width: 0;
+}
+.ks-automation-stepform {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+.ks-automation-sql {
+  height: 260px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.ks-automation-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.ks-automation-day {
+  min-width: 34px;
+  height: 26px;
+  padding: 0 6px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+  color: var(--fg);
+}
+.ks-automation-day:hover:not(:disabled) {
+  background: var(--bg-hover);
+}
+.ks-automation-day.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+.ks-automation-day:disabled {
+  opacity: 0.5;
+}
+.ks-automation-hint {
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.ks-automation-runs {
+  flex: none;
+  max-height: 40%;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.ks-automation-runs tr {
+  cursor: default;
+}
+.ks-automation-log {
+  flex: 1;
+  min-height: 120px;
+  overflow: auto;
+  padding: 6px 8px;
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ks-automation-status {
+  font-weight: 600;
+}
+.ks-automation-status.success {
+  color: var(--success);
+}
+.ks-automation-status.warning,
+.ks-automation-status.cancelled {
+  color: var(--warning);
+}
+.ks-automation-status.error {
+  color: var(--danger);
+}
+.ks-automation-status.running {
+  color: var(--accent);
+}
+.ks-automation-next {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--fg-muted);
+}

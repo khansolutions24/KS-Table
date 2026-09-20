@@ -1,0 +1,220 @@
+/* Data transfer, data synchronization, structure synchronization */
+
+.ks-sync {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  min-width: 0;
+  background: var(--bg-panel);
+}
+.ks-sync-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.ks-sync-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ks-sync-endpoints {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.ks-sync-swap {
+  align-self: center;
+}
+.ks-sync-endpoint {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 6px 10px;
+  align-items: center;
+  padding: 10px 12px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  min-width: 0;
+}
+.ks-sync-endpoint > .ks-field-hint,
+.ks-sync-endpoint > .ks-sync-full {
+  grid-column: 2;
+}
+.ks-sync-endpoint-title {
+  grid-column: 1 / -1;
+  font-weight: 600;
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+.ks-sync-endpoint-label {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ks-sync-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2px 18px;
+}
+.ks-sync-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* object / table lists */
+.ks-sync-list {
+  flex: 1;
+  min-height: 160px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-input);
+  outline: none;
+}
+.ks-sync-list .ks-table td {
+  max-width: 320px;
+}
+.ks-sync-list .ks-table tr.group td {
+  background: var(--bg-panel-alt);
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.ks-sync-list .ks-table td.chk {
+  width: 28px;
+  padding: 0 0 0 8px;
+}
+.ks-sync-list .ks-table td .ks-input {
+  height: 22px;
+}
+.ks-sync-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.ks-sync-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.ks-sync-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.ks-sync-status.create,
+.ks-sync-status.ok,
+.ks-sync-plus {
+  color: var(--success);
+}
+.ks-sync-status.drop,
+.ks-sync-status.error,
+.ks-sync-minus {
+  color: var(--danger);
+}
+.ks-sync-status.alter,
+.ks-sync-status.warning,
+.ks-sync-tilde {
+  color: var(--warning);
+}
+.ks-sync-status.same,
+.ks-sync-status.skipped {
+  color: var(--fg-faint);
+}
+
+/* split layout of result views */
+.ks-sync-split {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-sync-pane {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.ks-sync-pane-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 3px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-toolbar);
+}
+.ks-sync-pane-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.ks-sync-diff {
+  position: absolute;
+  inset: 0;
+}
+.ks-sync-sep {
+  background: var(--border);
+  flex: none;
+}
+.ks-sync-sep[aria-orientation='horizontal'],
+.ks-sync-sep.h {
+  height: 4px;
+}
+.ks-sync-sep[aria-orientation='vertical'],
+.ks-sync-sep.v {
+  width: 4px;
+}
+.ks-sync-sep:hover,
+.ks-sync-sep[data-separator='active'] {
+  background: var(--accent);
+}
+.ks-sync-details {
+  margin: 0;
+  padding: 8px 12px;
+  list-style: none;
+  overflow: auto;
+  max-height: 96px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+.ks-sync-taskdialog {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 300px;
+}
+.ks-sync-empty {
+  padding: 24px;
+  color: var(--fg-muted);
+  text-align: center;
+}
+.ks-sync-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+.ks-sync-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}

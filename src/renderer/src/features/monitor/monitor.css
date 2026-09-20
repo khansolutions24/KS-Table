@@ -1,0 +1,71 @@
+.ks-monitor-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-monitor-split {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-monitor-list {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.ks-monitor-detail {
+  height: 150px;
+  flex: none;
+  border-top: 1px solid var(--border);
+  overflow: auto;
+  background: var(--bg-code);
+}
+.ks-monitor-search {
+  width: 220px;
+}
+.ks-monitor-conns {
+  max-width: 320px;
+}
+.ks-monitor-errors {
+  padding: 6px 10px;
+  color: var(--danger);
+  border-bottom: 1px solid var(--border);
+  background: var(--danger-soft);
+  flex: none;
+  white-space: pre-wrap;
+}
+.ks-monitor-charts {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel-alt);
+  max-height: 55%;
+  overflow: auto;
+}
+.ks-monitor-chart {
+  height: 170px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.ks-monitor-innodb {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--bg-code);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre;
+}
+.ks-monitor-changed {
+  color: var(--accent);
+  font-weight: 600;
+}

@@ -1,0 +1,131 @@
+/* Data generator tab */
+.ks-datagen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--bg-panel);
+}
+.ks-datagen-page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-datagen-split {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 300px minmax(260px, 1fr) 340px;
+}
+.ks-datagen-pane {
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+}
+.ks-datagen-pane:last-child {
+  border-right: none;
+}
+.ks-datagen-pane-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 3px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-toolbar);
+  font-weight: 600;
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+.ks-datagen-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  outline: none;
+}
+.ks-datagen-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 2px 8px;
+  border-bottom: 1px solid var(--grid-line);
+}
+.ks-datagen-row:hover {
+  background: var(--bg-hover);
+}
+.ks-datagen-row.selected {
+  background: var(--bg-selected);
+}
+.ks-datagen-row.off .ks-datagen-name {
+  color: var(--fg-muted);
+}
+.ks-datagen-name {
+  flex: 1;
+  min-width: 0;
+}
+.ks-datagen-sub {
+  color: var(--fg-faint);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.ks-datagen-rows {
+  width: 86px !important;
+  flex: none;
+  height: 24px;
+}
+.ks-datagen-warn {
+  color: var(--warning);
+  flex: none;
+}
+.ks-datagen-kind {
+  color: var(--fg-muted);
+  font-size: 12px;
+  white-space: nowrap;
+  max-width: 45%;
+}
+.ks-datagen-form {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ks-datagen-hint {
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.ks-datagen-options {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+}
+.ks-datagen-preview-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.ks-datagen-grid {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.ks-datagen-run {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px;
+}

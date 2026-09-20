@@ -1,0 +1,96 @@
+/* Backup / restore / extract tab */
+.ks-backup-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .ks-backup-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.ks-backup-objects {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-input);
+  height: 340px;
+  overflow: auto;
+  padding: 4px 6px;
+  outline: none;
+}
+.ks-backup-objects.disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.ks-backup-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 24px;
+}
+.ks-backup-group-head {
+  font-weight: 600;
+}
+.ks-backup-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+  padding-left: 22px;
+}
+.ks-backup-item .ks-check span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.ks-backup-count {
+  color: var(--fg-faint);
+  font-size: 12px;
+  margin-left: 4px;
+}
+.ks-backup-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.ks-backup-info {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 4px 10px;
+  line-height: 1.45;
+}
+.ks-backup-info > :nth-child(odd) {
+  color: var(--fg-muted);
+}
+.ks-backup-info > :nth-child(even) {
+  word-break: break-word;
+}
+.ks-backup-progress {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px;
+  gap: 10px;
+}
+.ks-backup-summary {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-panel-alt);
+}
+.ks-backup-summary.error {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+.ks-backup-summary.success {
+  border-color: var(--success);
+  background: var(--success-soft);
+}
+.ks-backup-hint {
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}

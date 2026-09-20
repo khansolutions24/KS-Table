@@ -1,0 +1,237 @@
+/* Table designer */
+.ks-td-split {
+  flex: 1;
+  min-height: 0;
+}
+.ks-td-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.ks-td-grid th.num,
+.ks-td-grid td.num {
+  width: 34px;
+  text-align: right;
+  color: var(--fg-faint);
+  font-size: 11px;
+  padding-right: 6px;
+}
+.ks-td-grid td.handle {
+  width: 18px;
+  padding: 0;
+  text-align: center;
+  color: var(--fg-faint);
+  cursor: grab;
+}
+.ks-td-grid td.handle:active {
+  cursor: grabbing;
+}
+.ks-td-grid tr.drop-before td {
+  box-shadow: inset 0 2px 0 var(--accent);
+}
+.ks-td-grid tr.drop-after td {
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+.ks-td-grid tr.dragging td {
+  opacity: 0.45;
+}
+.ks-td-grid tr.match td.num {
+  background: color-mix(in srgb, #facc15 45%, transparent);
+  color: var(--fg);
+}
+.ks-td-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  height: 23px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--fg-faint);
+  padding: 0;
+}
+.ks-td-key:hover {
+  border-color: var(--border);
+  color: var(--fg-muted);
+}
+.ks-td-key.on {
+  color: var(--c-key);
+}
+.ks-td-key-order {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.ks-td-type {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.ks-td-type .ks-dsg-cell {
+  flex: 1;
+}
+.ks-td-type-btn {
+  flex: none;
+  width: 18px;
+  height: 23px;
+  border: none;
+  background: transparent;
+  color: var(--fg-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 3px;
+}
+.ks-td-type-btn:hover {
+  background: var(--bg-hover);
+  color: var(--fg);
+}
+.ks-td-find {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-toolbar);
+  flex: none;
+}
+.ks-td-find .ks-search {
+  width: 240px;
+}
+.ks-td-find-count {
+  color: var(--fg-muted);
+  font-size: 12px;
+  min-width: 70px;
+}
+.ks-td-props {
+  height: 100%;
+  overflow: auto;
+  padding: 10px 16px 14px;
+  background: var(--bg-panel);
+}
+.ks-td-props-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ks-td-props-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(280px, 1fr);
+  gap: 7px 30px;
+  align-items: start;
+}
+.ks-td-props-grid > .full {
+  grid-column: 1 / -1;
+}
+.ks-td-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+.ks-td-default {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+.ks-td-default > .ks-select {
+  width: 190px;
+  flex: none;
+}
+.ks-td-values {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+.ks-td-values .ks-dsg-list {
+  flex: 1;
+  height: 132px;
+  min-height: 0;
+}
+.ks-td-values .ks-dsg-list-item input {
+  flex: 1;
+  height: 22px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--fg);
+  outline: none;
+  padding: 0 4px;
+  border-radius: 3px;
+}
+.ks-td-values .ks-dsg-list-item input:focus {
+  border-color: var(--accent);
+  background: var(--bg-input);
+}
+.ks-td-trigger-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-toolbar);
+  color: var(--fg-muted);
+  flex: none;
+}
+.ks-td-comment {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-height: 0;
+}
+.ks-td-comment textarea {
+  flex: 1;
+  resize: none;
+  max-width: 900px;
+}
+.ks-td-partition-preview {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-code);
+  max-height: 180px;
+  overflow: auto;
+}
+.ks-td-partition-preview .ks-sql {
+  padding: 8px 10px;
+}
+.ks-td-part-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  height: 100%;
+}
+.ks-td-part-grid {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  height: 190px;
+  overflow: auto;
+  flex: none;
+}
+.ks-td-idx-dialog {
+  display: grid;
+  grid-template-columns: 200px auto 1fr;
+  gap: 10px;
+  height: 330px;
+}
+.ks-td-idx-dialog .ks-dsg-list {
+  height: 100%;
+}
+.ks-td-idx-parts {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: auto;
+  min-height: 0;
+}
+.ks-dsg-pick {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  gap: 8px;
+  align-items: stretch;
+}

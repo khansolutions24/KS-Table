@@ -1,0 +1,28 @@
+appId: de.ks.kstable
+productName: KS Table
+copyright: Copyright © 2026 KS
+directories:
+  output: release
+  buildResources: build
+files:
+  - out/**
+  - package.json
+npmRebuild: false
+win:
+  icon: build/icon.ico
+  executableName: KS Table
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: KS Table
+  artifactName: KS-Table-Setup-${version}.${ext}
+portable:
+  artifactName: KS-Table-${version}-portable.${ext}

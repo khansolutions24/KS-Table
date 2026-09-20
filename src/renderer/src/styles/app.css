@@ -1,0 +1,239 @@
+/* ───────────────────────── Theme tokens ───────────────────────── */
+:root {
+  --bg-app: #f3f4f6;
+  --bg-titlebar: #e9ecf1;
+  --bg-toolbar: #f7f8fa;
+  --bg-panel: #ffffff;
+  --bg-panel-alt: #f8f9fb;
+  --bg-sidebar: #f7f8fa;
+  --bg-input: #ffffff;
+  --bg-hover: rgba(37, 99, 235, 0.07);
+  --bg-pressed: rgba(37, 99, 235, 0.14);
+  --bg-selected: #dce8fd;
+  --bg-selected-strong: #2563eb;
+  --bg-menu: #ffffff;
+  --bg-tooltip: #1f2329;
+  --bg-code: #f6f8fa;
+
+  --border: #dde1e7;
+  --border-strong: #c3c9d2;
+  --border-input: #c8cdd5;
+
+  --fg: #1d2228;
+  --fg-muted: #626a75;
+  --fg-faint: #9aa1ab;
+  --fg-inverse: #ffffff;
+
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: #e8f0fe;
+  --accent-fg: #ffffff;
+  --danger: #dc2626;
+  --danger-soft: #fdecec;
+  --warning: #b86e00;
+  --warning-soft: #fff4de;
+  --success: #15803d;
+  --success-soft: #e6f6ec;
+
+  --focus-ring: 0 0 0 2px rgba(37, 99, 235, 0.35);
+  --shadow-menu: 0 6px 20px rgba(15, 23, 42, 0.16), 0 1px 3px rgba(15, 23, 42, 0.12);
+  --shadow-dialog: 0 18px 50px rgba(15, 23, 42, 0.28), 0 2px 8px rgba(15, 23, 42, 0.12);
+
+  --c-table: #2563eb;
+  --c-view: #7c3aed;
+  --c-function: #ea580c;
+  --c-procedure: #d9480f;
+  --c-event: #0d9488;
+  --c-query: #16a34a;
+  --c-backup: #b45309;
+  --c-user: #0891b2;
+  --c-model: #4f46e5;
+  --c-chart: #db2777;
+  --c-mysql: #00758f;
+  --c-mariadb: #b5654a;
+  --c-trigger: #a16207;
+  --c-index: #64748b;
+  --c-key: #d4a106;
+
+  --grid-header-bg: #f1f3f6;
+  --grid-line: #e4e7ec;
+  --grid-null: #9aa1ab;
+  --grid-modified: #fff3c4;
+  --grid-inserted: #e3f6e8;
+  --grid-deleted: #fde2e2;
+
+  --font-ui: 'Segoe UI', 'Segoe UI Variable', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Cascadia Mono', Consolas, 'Courier New', monospace;
+  --fs: 13px;
+  --radius: 4px;
+  --radius-lg: 6px;
+  --titlebar-h: 34px;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg-app: #1b1e23;
+  --bg-titlebar: #15171b;
+  --bg-toolbar: #202329;
+  --bg-panel: #23262c;
+  --bg-panel-alt: #272a31;
+  --bg-sidebar: #1f2227;
+  --bg-input: #1a1d22;
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-pressed: rgba(255, 255, 255, 0.11);
+  --bg-selected: #2a3a57;
+  --bg-selected-strong: #3b7bff;
+  --bg-menu: #2a2d34;
+  --bg-tooltip: #e3e6eb;
+  --bg-code: #1d2025;
+
+  --border: #33373f;
+  --border-strong: #464b55;
+  --border-input: #3f444d;
+
+  --fg: #e2e5ea;
+  --fg-muted: #9ca3ae;
+  --fg-faint: #6b727d;
+  --fg-inverse: #111317;
+
+  --accent: #4c8dff;
+  --accent-hover: #6ba0ff;
+  --accent-soft: #22314d;
+  --accent-fg: #ffffff;
+  --danger: #f06262;
+  --danger-soft: #3d2326;
+  --warning: #e0a13a;
+  --warning-soft: #3a3020;
+  --success: #4ac47a;
+  --success-soft: #1f3528;
+
+  --focus-ring: 0 0 0 2px rgba(76, 141, 255, 0.45);
+  --shadow-menu: 0 8px 24px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-dialog: 0 18px 60px rgba(0, 0, 0, 0.6);
+
+  --c-table: #5b93ff;
+  --c-view: #a78bfa;
+  --c-function: #fb923c;
+  --c-procedure: #f97316;
+  --c-event: #2dd4bf;
+  --c-query: #4ade80;
+  --c-backup: #f59e0b;
+  --c-user: #22d3ee;
+  --c-model: #818cf8;
+  --c-chart: #f472b6;
+  --c-mysql: #3fb4cf;
+  --c-mariadb: #e0987c;
+  --c-trigger: #eab308;
+  --c-index: #94a3b8;
+  --c-key: #facc15;
+
+  --grid-header-bg: #2a2e35;
+  --grid-line: #353a42;
+  --grid-null: #6b727d;
+  --grid-modified: #4a4020;
+  --grid-inserted: #1f3a28;
+  --grid-deleted: #4a2326;
+  color-scheme: dark;
+}
+
+/* ───────────────────────── Base ───────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: var(--fs);
+  color: var(--fg);
+  background: var(--bg-app);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  cursor: default;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--fg-faint) 55%, transparent);
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--fg-faint);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+.muted {
+  color: var(--fg-muted);
+}
+.faint {
+  color: var(--fg-faint);
+}
+.danger-text {
+  color: var(--danger);
+}
+.success-text {
+  color: var(--success);
+}
+.selectable {
+  user-select: text;
+  cursor: text;
+}
+.grow {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.spacer {
+  flex: 1;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+}

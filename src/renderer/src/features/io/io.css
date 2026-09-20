@@ -1,0 +1,248 @@
+/* Import / export / dump / execute SQL file wizards */
+
+.ks-io-step-btn {
+  border: none;
+  background: transparent;
+  font: inherit;
+  cursor: default;
+}
+.ks-io-step-btn:disabled {
+  opacity: 0.55;
+}
+.ks-io-step-btn:not(:disabled):not(.active):hover {
+  background: var(--bg-hover);
+}
+
+.ks-io-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+.ks-io-subtitle {
+  color: var(--fg-muted);
+  margin: -6px 0 0;
+}
+
+/* format tiles */
+.ks-io-formats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 8px;
+  max-width: 900px;
+}
+.ks-io-format {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-panel);
+  color: var(--fg);
+  text-align: left;
+  font: inherit;
+}
+.ks-io-format:hover {
+  background: var(--bg-hover);
+}
+.ks-io-format.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.ks-io-format svg {
+  flex: none;
+  color: var(--accent);
+  margin-top: 1px;
+}
+.ks-io-format-name {
+  font-weight: 600;
+}
+.ks-io-format-desc {
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* list boxes with a header */
+.ks-io-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+}
+.ks-io-box-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 3px 6px 3px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-toolbar);
+  flex: none;
+}
+.ks-io-box-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+.ks-io-grow {
+  flex: 1;
+  min-height: 220px;
+}
+.ks-io-split {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 12px;
+  flex: 1;
+  min-height: 260px;
+}
+.ks-io-split > * {
+  min-width: 0;
+}
+
+.ks-io-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 26px;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+.ks-io-list-item:hover {
+  background: var(--bg-hover);
+}
+.ks-io-list-item.selected {
+  background: var(--bg-selected);
+}
+.ks-io-list-item .ellipsis {
+  flex: 1;
+  min-width: 0;
+}
+.ks-io-group {
+  padding: 6px 10px 2px;
+  color: var(--fg-muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* tables inside wizards */
+.ks-io-table {
+  width: 100%;
+}
+.ks-io-table td {
+  max-width: none;
+  overflow: visible;
+}
+.ks-io-table td .ks-input,
+.ks-io-table td .ks-select {
+  height: 24px;
+}
+.ks-io-table td.center,
+.ks-io-table th.center {
+  text-align: center;
+}
+.ks-io-table tr.muted td {
+  color: var(--fg-faint);
+}
+
+.ks-io-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 12px;
+  align-items: start;
+  max-width: 1100px;
+}
+.ks-io-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.ks-io-inline .ks-input {
+  width: auto;
+}
+.ks-io-short {
+  width: 90px !important;
+}
+.ks-io-medium {
+  width: 170px !important;
+}
+
+.ks-io-preview {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  min-height: 160px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  flex: none;
+}
+.ks-io-preview-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  position: relative;
+}
+.ks-io-preview-msg {
+  padding: 16px;
+  color: var(--fg-muted);
+}
+.ks-io-preview-msg.error {
+  color: var(--danger);
+  white-space: pre-wrap;
+}
+
+.ks-io-summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-panel-alt);
+  flex: none;
+}
+.ks-io-summary > :nth-child(odd) {
+  color: var(--fg-muted);
+}
+.ks-io-summary > :nth-child(even) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ks-io-run {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 300px;
+}
+
+.ks-io-hint {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  background: var(--warning-soft);
+  color: var(--fg);
+}
+.ks-io-hint svg {
+  flex: none;
+  color: var(--warning);
+  margin-top: 1px;
+}
+
+.ks-io-profile-list {
+  min-height: 200px;
+  max-height: 340px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}

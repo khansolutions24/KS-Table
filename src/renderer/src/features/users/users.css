@@ -1,0 +1,394 @@
+/* ───────────────────────── Users pane (objects tab) ───────────────────────── */
+.ks-users-pane {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-users-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  position: relative;
+}
+.ks-users-list {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+}
+.ks-users-search {
+  width: 190px;
+  margin: 0 4px;
+}
+.ks-users-info {
+  width: 330px;
+  flex: none;
+  border-left: 1px solid var(--border);
+  background: var(--bg-panel);
+  overflow: auto;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ks-users-info-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ks-users-info-title {
+  font-size: 15px;
+  font-weight: 600;
+  word-break: break-all;
+}
+.ks-users-info-sub {
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+.ks-users-info-label {
+  color: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.ks-users-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.ks-users-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: var(--bg-pressed);
+  font-size: 12px;
+  max-width: 100%;
+}
+.ks-users-grants {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.ks-users-grants .ks-sql {
+  padding: 8px 10px;
+  font-size: 11.5px;
+}
+
+/* ───────────────────────── Designer ───────────────────────── */
+.ks-users-designer {
+  outline: none;
+}
+.ks-users-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px 18px;
+}
+.ks-users-form {
+  max-width: 760px;
+}
+.ks-users-fill {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-users-subbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel-alt);
+  flex: none;
+  flex-wrap: wrap;
+}
+.ks-users-subbar .ks-search {
+  width: 220px;
+}
+.ks-users-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin: 10px 12px 0;
+  border-radius: var(--radius);
+  background: var(--warning-soft);
+  color: var(--warning);
+  flex: none;
+}
+.ks-users-note {
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ks-users-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ks-users-inline .ks-select {
+  width: auto;
+  min-width: 200px;
+}
+.ks-users-privgroup {
+  font-weight: 600;
+  color: var(--fg-muted);
+  font-size: 12px;
+  margin: 14px 0 6px;
+}
+.ks-users-privgroup:first-child {
+  margin-top: 0;
+}
+.ks-users-privgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2px 16px;
+}
+.ks-users-privgrid .ks-check span {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.ks-users-privgrid .ks-check.changed,
+.ks-users-roles td.changed {
+  background: var(--grid-modified);
+  border-radius: 3px;
+}
+.ks-users-roles {
+  max-width: 760px;
+}
+.ks-users-roles td.check,
+.ks-users-roles th.check {
+  width: 120px;
+  text-align: center;
+}
+.ks-users-roles td.check input {
+  margin: 0;
+  accent-color: var(--accent);
+}
+.ks-users-sql {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--bg-code);
+}
+
+/* ───────────────────────── Matrix ───────────────────────── */
+.ks-users-matrix-wrap {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  position: relative;
+  background: var(--bg-panel);
+}
+.ks-users-matrix {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--fs);
+}
+.ks-users-matrix th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--grid-header-bg);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--grid-line);
+  font-weight: 600;
+  padding: 6px 0;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+.ks-users-matrix th.priv {
+  height: 158px;
+  width: 30px;
+  min-width: 30px;
+  cursor: pointer;
+}
+.ks-users-matrix th.priv:hover {
+  background: color-mix(in srgb, var(--accent) 10%, var(--grid-header-bg));
+}
+.ks-users-matrix th.priv span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.ks-users-matrix th.obj {
+  left: 0;
+  z-index: 3;
+  text-align: left;
+  padding: 6px 10px;
+  min-width: 280px;
+}
+.ks-users-matrix th.fill,
+.ks-users-matrix td.fill {
+  border-right: none;
+  width: 100%;
+}
+.ks-users-matrix td {
+  border-bottom: 1px solid var(--grid-line);
+  border-right: 1px solid var(--grid-line);
+  height: 26px;
+  text-align: center;
+  padding: 0;
+}
+.ks-users-matrix td.cell input {
+  margin: 0;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+  vertical-align: middle;
+}
+.ks-users-matrix td.na {
+  color: var(--fg-faint);
+}
+.ks-users-matrix td.changed {
+  background: var(--grid-modified);
+}
+.ks-users-matrix td.obj {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--bg-panel);
+  text-align: left;
+  padding: 0 10px;
+  max-width: 380px;
+}
+.ks-users-matrix-obj {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.ks-users-matrix tbody tr:hover td {
+  background: var(--bg-hover);
+}
+.ks-users-matrix tbody tr:hover td.obj {
+  background: color-mix(in srgb, var(--fg) 5%, var(--bg-panel));
+}
+.ks-users-matrix tbody tr:hover td.changed {
+  background: var(--grid-modified);
+}
+.ks-users-matrix tr.selected td.obj {
+  background: var(--bg-selected);
+}
+.ks-users-matrix-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--fg-muted);
+}
+
+/* ───────────────────────── Object tree ───────────────────────── */
+.ks-users-tree {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  outline: none;
+  padding: 3px 0;
+  background: var(--bg-panel);
+}
+.ks-users-tree-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+.ks-users-tree-row:hover:not(.placeholder) {
+  background: var(--bg-hover);
+}
+.ks-users-tree-row.selected {
+  background: var(--bg-selected);
+}
+.ks-users-tree:focus .ks-users-tree-row.focused {
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+.ks-users-tree-row.placeholder {
+  gap: 6px;
+  font-size: 12px;
+}
+.ks-users-tree-twisty {
+  width: 16px;
+  height: 20px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-muted);
+}
+.ks-users-tree-badge {
+  flex: none;
+  color: var(--fg-faint);
+  font-size: 11px;
+}
+
+/* ───────────────────────── Dialogs ───────────────────────── */
+.ks-users-picker-hint {
+  padding: 8px 14px;
+  color: var(--fg-muted);
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+.ks-users-picker-tree {
+  border-bottom: 1px solid var(--border);
+}
+.ks-users-picker-pattern {
+  padding: 10px 14px;
+  flex: none;
+}
+.ks-users-pick-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  height: 300px;
+  overflow: auto;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--bg-input);
+}
+
+/* ───────────────────────── Privilege manager ───────────────────────── */
+.ks-users-privmgr-panels {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+.ks-users-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+.ks-users-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel-alt);
+  font-weight: 600;
+  flex: none;
+  min-width: 0;
+}
+.ks-users-splitter {
+  width: 4px;
+  background: var(--bg-app);
+  transition: background 0.1s;
+  flex: none;
+}
+.ks-users-splitter:hover,
+.ks-users-splitter[data-separator='active'] {
+  background: var(--accent);
+}

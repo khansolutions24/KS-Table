@@ -1,0 +1,73 @@
+.ks-history-filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel-alt);
+  flex: none;
+  flex-wrap: wrap;
+}
+.ks-history-filters .ks-select {
+  width: auto;
+}
+.ks-history-search {
+  width: 260px;
+}
+.ks-history-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-history-list {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.ks-history-detail {
+  height: 34%;
+  min-height: 120px;
+  flex: none;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+}
+.ks-history-detail-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 4px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg-muted);
+  font-size: 12px;
+  flex: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ks-history-error {
+  padding: 6px 12px;
+  color: var(--danger);
+  background: var(--danger-soft);
+  flex: none;
+  white-space: pre-wrap;
+}
+.ks-history-sql {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--bg-code);
+}
+.ks-history-ok,
+.ks-history-err {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ks-history-ok {
+  color: var(--success);
+}
+.ks-history-err {
+  color: var(--danger);
+}

@@ -1,0 +1,63 @@
+.ks-opt {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  background: var(--bg-panel);
+}
+.ks-opt-nav {
+  flex: none;
+  width: 210px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--border);
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ks-opt-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 34px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--fg);
+  text-align: left;
+}
+.ks-opt-nav-item svg {
+  color: var(--fg-muted);
+}
+.ks-opt-nav-item:hover {
+  background: var(--bg-hover);
+}
+.ks-opt-nav-item.active {
+  background: var(--bg-selected);
+  font-weight: 600;
+}
+.ks-opt-nav-item.active svg {
+  color: var(--accent);
+}
+.ks-opt-body {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  padding: 18px 28px 28px;
+}
+.ks-opt-body .ks-form {
+  max-width: 820px;
+  gap: 14px;
+}
+.ks-opt-body h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.ks-opt-preview {
+  height: 200px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}

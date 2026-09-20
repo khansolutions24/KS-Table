@@ -1,0 +1,798 @@
+/* ───────────────────────── Buttons ───────────────────────── */
+.ks-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-input);
+  background: var(--bg-panel);
+  color: var(--fg);
+  white-space: nowrap;
+  cursor: default;
+  min-width: 76px;
+  transition: background 0.08s, border-color 0.08s;
+}
+.ks-btn.icon-only {
+  min-width: 28px;
+  padding: 0;
+  width: 28px;
+}
+.ks-btn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+.ks-btn:active:not(:disabled) {
+  background: var(--bg-pressed);
+}
+.ks-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.ks-btn:disabled {
+  opacity: 0.5;
+}
+.ks-btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+.ks-btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+.ks-btn-danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+.ks-btn-danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--danger) 88%, black);
+}
+.ks-btn-ghost {
+  border-color: transparent;
+  background: transparent;
+  min-width: 0;
+}
+.ks-btn-link {
+  border: none;
+  background: none;
+  color: var(--accent);
+  min-width: 0;
+  padding: 0 4px;
+}
+.ks-btn-link:hover:not(:disabled) {
+  background: none;
+  text-decoration: underline;
+}
+.ks-btn-sm {
+  height: 24px;
+  padding: 0 8px;
+  min-width: 0;
+  font-size: 12px;
+}
+.ks-btn-sm.icon-only {
+  width: 24px;
+}
+
+.ks-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg-muted);
+  flex: none;
+}
+.ks-icon-btn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  color: var(--fg);
+}
+.ks-icon-btn.active {
+  background: var(--bg-pressed);
+  color: var(--accent);
+}
+.ks-icon-btn:disabled {
+  opacity: 0.4;
+}
+
+/* ───────────────────────── Inputs ───────────────────────── */
+.ks-input {
+  height: 26px;
+  padding: 0 7px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius);
+  background: var(--bg-input);
+  color: var(--fg);
+  outline: none;
+  min-width: 0;
+  width: 100%;
+  user-select: text;
+}
+.ks-input:focus {
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+}
+.ks-input:disabled {
+  opacity: 0.55;
+  background: var(--bg-panel-alt);
+}
+.ks-input.invalid {
+  border-color: var(--danger);
+}
+.ks-input::placeholder {
+  color: var(--fg-faint);
+}
+.ks-select {
+  padding-right: 4px;
+}
+.ks-select option {
+  background: var(--bg-panel);
+  color: var(--fg);
+}
+.ks-textarea {
+  height: auto;
+  min-height: 60px;
+  padding: 6px 7px;
+  resize: vertical;
+  line-height: 1.45;
+}
+input[type='number'].ks-input {
+  padding-right: 2px;
+}
+
+.ks-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+}
+.ks-check input {
+  margin: 0;
+  accent-color: var(--accent);
+  width: 14px;
+  height: 14px;
+}
+.ks-check.disabled {
+  opacity: 0.55;
+}
+.ks-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ks-radio-group.inline {
+  flex-direction: row;
+  gap: 16px;
+}
+
+.ks-path-input {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+
+.ks-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.ks-search input {
+  width: 100%;
+  height: 26px;
+  padding: 0 24px 0 26px;
+  border: 1px solid var(--border-input);
+  border-radius: 13px;
+  background: var(--bg-input);
+  outline: none;
+  user-select: text;
+}
+.ks-search input:focus {
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+}
+.ks-search-icon {
+  position: absolute;
+  left: 9px;
+  color: var(--fg-faint);
+  pointer-events: none;
+}
+.ks-search-clear {
+  position: absolute;
+  right: 5px;
+  width: 17px;
+  height: 17px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-pressed);
+  color: var(--fg-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* ───────────────────────── Form layout ───────────────────────── */
+.ks-field {
+  display: grid;
+  grid-template-columns: var(--label-w, 140px) 1fr;
+  align-items: center;
+  gap: 4px 10px;
+  min-height: 28px;
+}
+.ks-field.align-top {
+  align-items: start;
+}
+.ks-field.align-top .ks-field-label {
+  padding-top: 5px;
+}
+.ks-field-label {
+  color: var(--fg);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ks-field-control {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.ks-field-hint {
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+.ks-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ks-section {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 10px 12px 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.ks-section > legend {
+  padding: 0 5px;
+  color: var(--fg-muted);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* ───────────────────────── Tabs (inside panels / dialogs) ───────────────────────── */
+.ks-tabstrip {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  border-bottom: 1px solid var(--border);
+  padding: 0 8px;
+  flex: none;
+  min-height: 32px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.ks-tabstrip::-webkit-scrollbar {
+  height: 0;
+}
+.ks-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: transparent;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  position: relative;
+  top: 1px;
+}
+.ks-tab:hover {
+  color: var(--fg);
+  background: var(--bg-hover);
+}
+.ks-tab.active {
+  color: var(--fg);
+  background: var(--bg-panel);
+  border-color: var(--border);
+  font-weight: 600;
+}
+.ks-tab-badge {
+  background: var(--bg-pressed);
+  color: var(--fg-muted);
+  border-radius: 8px;
+  padding: 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.ks-tabstrip-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: center;
+}
+
+/* ───────────────────────── Toolbar ───────────────────────── */
+.ks-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 6px;
+  background: var(--bg-toolbar);
+  border-bottom: 1px solid var(--border);
+  flex: none;
+  min-height: 34px;
+  overflow: hidden;
+}
+.ks-tb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  white-space: nowrap;
+  flex: none;
+}
+.ks-tb-btn.inline {
+  height: 27px;
+  padding: 0 7px;
+}
+.ks-tb-btn.stacked {
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  height: 52px;
+  min-width: 58px;
+  padding: 3px 6px 2px;
+  font-size: 12px;
+  position: relative;
+}
+.ks-tb-btn.stacked .ks-tb-caret {
+  position: absolute;
+  right: 1px;
+  top: 14px;
+}
+.ks-tb-btn svg {
+  flex: none;
+}
+.ks-tb-btn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border);
+}
+.ks-tb-btn:active:not(:disabled),
+.ks-tb-btn.active {
+  background: var(--bg-pressed);
+  border-color: var(--border-strong);
+}
+.ks-tb-btn:disabled {
+  opacity: 0.4;
+}
+.ks-tb-caret {
+  color: var(--fg-muted);
+  margin-left: -2px;
+}
+.ks-tb-sep {
+  width: 1px;
+  align-self: stretch;
+  margin: 4px 5px;
+  background: var(--border);
+  flex: none;
+}
+
+/* ───────────────────────── Menus ───────────────────────── */
+.ks-menu {
+  position: fixed;
+  z-index: 10000;
+  min-width: 190px;
+  max-height: calc(100vh - 8px);
+  overflow-y: auto;
+  padding: 4px;
+  background: var(--bg-menu);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-menu);
+  outline: none;
+  font-size: var(--fs);
+}
+.ks-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 27px;
+  padding: 0 10px 0 6px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+.ks-menu-item.active {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.ks-menu-item.active .ks-menu-shortcut,
+.ks-menu-item.active .ks-menu-arrow,
+.ks-menu-item.active .ks-obj-icon {
+  color: var(--accent-fg) !important;
+}
+.ks-menu-item.disabled {
+  opacity: 0.42;
+}
+.ks-menu-item.disabled.active {
+  background: var(--bg-hover);
+  color: var(--fg);
+}
+.ks-menu-item.danger:not(.disabled) {
+  color: var(--danger);
+}
+.ks-menu-item.danger.active {
+  background: var(--danger);
+  color: #fff;
+}
+.ks-menu-icon {
+  width: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.ks-menu-label {
+  flex: 1;
+}
+.ks-menu-shortcut {
+  color: var(--fg-muted);
+  margin-left: 24px;
+  font-size: 12px;
+}
+.ks-menu-arrow {
+  color: var(--fg-muted);
+  margin-right: -4px;
+}
+.ks-menu-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 6px;
+}
+.ks-menu-header {
+  padding: 5px 10px 3px 32px;
+  color: var(--fg-muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ks-menubar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  -webkit-app-region: no-drag;
+}
+.ks-menubar-item {
+  height: 26px;
+  padding: 0 9px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius);
+}
+.ks-menubar-item:hover,
+.ks-menubar-item.open {
+  background: var(--bg-pressed);
+}
+
+/* ───────────────────────── Dialogs ───────────────────────── */
+.ks-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(15, 20, 30, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:root[data-theme='dark'] .ks-dialog-overlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+.ks-dialog {
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  box-shadow: var(--shadow-dialog);
+  overflow: hidden;
+}
+.ks-dialog.resizable {
+  resize: both;
+  min-width: 360px;
+  min-height: 220px;
+}
+.ks-dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 6px 0 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel-alt);
+  font-weight: 600;
+  flex: none;
+}
+.ks-dialog-title-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ks-dialog-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ks-dialog-close:hover {
+  background: var(--danger);
+  color: #fff;
+}
+.ks-dialog-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px;
+}
+.ks-dialog-body.no-padding {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ks-dialog-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel-alt);
+  flex: none;
+}
+.ks-dialog-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ks-msg {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+.ks-msg-text {
+  flex: 1;
+  min-width: 0;
+  padding-top: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.ks-msg-icon {
+  flex: none;
+}
+.ks-msg-icon.error {
+  color: var(--danger);
+}
+.ks-msg-icon.warning {
+  color: var(--warning);
+}
+.ks-msg-icon.info {
+  color: var(--accent);
+}
+.ks-msg-details {
+  position: relative;
+  margin-top: 10px;
+}
+.ks-msg-details pre {
+  margin: 0;
+  max-height: 240px;
+  overflow: auto;
+  padding: 8px 32px 8px 10px;
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+.ks-msg-details .ks-icon-btn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+/* ───────────────────────── Misc ───────────────────────── */
+.ks-spinner {
+  display: inline-block;
+  border: 2px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: ks-spin 0.7s linear infinite;
+  flex: none;
+}
+@keyframes ks-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.ks-progress {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-pressed);
+  overflow: hidden;
+  position: relative;
+}
+.ks-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.15s;
+}
+.ks-progress.indeterminate .ks-progress-bar {
+  width: 35%;
+  position: absolute;
+  animation: ks-indeterminate 1.1s ease-in-out infinite;
+}
+@keyframes ks-indeterminate {
+  from {
+    left: -35%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.ks-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--fg-muted);
+  text-align: center;
+  padding: 24px;
+}
+.ks-empty-icon {
+  color: var(--fg-faint);
+}
+.ks-empty-title {
+  font-size: 15px;
+  color: var(--fg);
+  font-weight: 600;
+}
+.ks-empty-body {
+  max-width: 460px;
+  line-height: 1.5;
+}
+
+.ks-swatches {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.ks-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  padding: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+.ks-swatch.none {
+  background: linear-gradient(45deg, transparent 45%, var(--danger) 45%, var(--danger) 55%, transparent 55%), var(--bg-panel);
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+.ks-swatch.active {
+  border-color: var(--fg);
+}
+
+.ks-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--bg-pressed);
+  color: var(--fg-muted);
+}
+.ks-badge.accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.ks-badge.danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.ks-badge.success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.ks-badge.warning {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+kbd {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  padding: 1px 5px;
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  background: var(--bg-panel-alt);
+}
+
+/* Simple HTML table used in lists and designers */
+.ks-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-size: var(--fs);
+}
+.ks-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--grid-header-bg);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--grid-line);
+  text-align: left;
+  font-weight: 600;
+  padding: 0 8px;
+  height: 27px;
+  white-space: nowrap;
+  color: var(--fg);
+}
+.ks-table td {
+  border-bottom: 1px solid var(--grid-line);
+  border-right: 1px solid var(--grid-line);
+  padding: 0 8px;
+  height: 26px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 420px;
+}
+.ks-table tr.selected td {
+  background: var(--bg-selected);
+}
+.ks-table tbody tr:hover td {
+  background: var(--bg-hover);
+}
+.ks-table tr.selected:hover td {
+  background: var(--bg-selected);
+}
+.ks-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
