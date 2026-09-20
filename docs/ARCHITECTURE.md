@@ -1,8 +1,8 @@
 # KS Table – Architecture & Conventions
 
-KS Table is an original desktop database manager for **MySQL / MariaDB** whose functional scope is modeled after
-Navicat Premium. Stack: **Electron + React 18 + TypeScript 7**, bundled with electron-vite (Vite 7).
-All code, names, icons and texts are our own – never copy Navicat assets or texts.
+KS Table is an original desktop database manager for **MySQL / MariaDB**. Stack: **Electron + React 18 +
+TypeScript 7**, bundled with electron-vite (Vite 7).
+All code, names, icons and texts are our own.
 
 ## 1. Running & checking
 
